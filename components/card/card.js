@@ -2,7 +2,6 @@ const cardContainer = document.querySelector("[data-js='card-container']")
 
 export function createCharacterCard() {
 
-FETCHDATAARRAY.forEach(element => { //TO BE REVIEWED AND UPDATED
    const characterCard = document.createElement(li)
    characterCard.classList.add("card")
 
@@ -22,16 +21,12 @@ FETCHDATAARRAY.forEach(element => { //TO BE REVIEWED AND UPDATED
               <dd class="card__info-description">${character.status}</dd
                 >
               <dt class="card__info-title">Type</dt>
-              <dd class="card__info-description">${character.description}</dd>
+              <dd class="card__info-description">${character.species}</dd>
               <dt class="card__info-title">Occurrences</dt>
-              <dd class="card__info-description">${character.ocurrences}</dd>
+              <dd class="card__info-description">${character.episode}</dd>
             </dl>
           </div>
     `
-
-cardContainer.append(card)
-
-});
-    
+    cardContainer.append(characterCard)
 }
 
