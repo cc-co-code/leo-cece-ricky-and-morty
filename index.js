@@ -1,10 +1,12 @@
 import { createCharacterCard } from "./components/card/card.js";
 import { createNavPagination } from "./components/nav-pagination/nav-pagination.js";
+import { createSearchBar } from "./components/search-bar/search-bar.js"
 
 // States
 let maxPage = 1; /// should be updated according to API fetch
 let page = 1; //should be increase - decrease with button addEventListener
 let searchQuery = "";
+
 
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
@@ -34,13 +36,26 @@ function onClickNext(event) {
   }
 }
 
+//Initialize components
+createSearchBar(onSubmit)
+
+function onSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData)
+    searchQuery = data.query
+  
+    cardContainer.innerHTML = ``;
+    console.log("Submit:", searchQuery)
+    fetchCharacters(searchQuery)
+}
 
 //API INTEGRATION - FETCH DATA
 
 async function fetchCharacters() {
   cardContainer.innerHTML = ``
   try {
-  const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+  const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&name=${searchQuery}`)
   
   if (response.ok) {
   const data = await response.json();
@@ -68,5 +83,6 @@ async function fetchCharacters() {
 }
 
 fetchCharacters()
+
 
 
