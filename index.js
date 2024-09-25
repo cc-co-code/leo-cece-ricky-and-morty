@@ -1,4 +1,5 @@
 import { createCharacterCard } from "./components/card/card.js";
+import { createNavPagination } from "./components/nav-pagination/nav-pagination.js";
 
 // States
 let maxPage = 1; /// should be updated according to API fetch
@@ -12,10 +13,28 @@ const searchBarContainer = document.querySelector(
 );
 const searchBar = document.querySelector('[data-js="search-bar"]');
 const navigation = document.querySelector('[data-js="navigation"]');
-const prevButton = document.querySelector('[data-js="button-prev"]');
-const nextButton = document.querySelector('[data-js="button-next"]');
+
+// Nav Pagination
+
+createNavPagination(onClickPrev, onClickNext, page, maxPage)
+
 const pagination = document.querySelector('[data-js="pagination"]');
 
+function onClickPrev(event) {
+  event.preventDefault();
+  if ( page > 1 ){
+    page -- ;
+    fetchCharacters()
+  }
+}
+
+function onClickNext(event) {
+  event.preventDefault();
+  if( page < maxPage ){ 
+    page ++ ;   
+    fetchCharacters()
+  }
+}
 
 
 //API INTEGRATION - FETCH DATA
@@ -52,21 +71,4 @@ async function fetchCharacters() {
 
 fetchCharacters()
 
-// Nav Pagination
-
-prevButton.addEventListener("click", () => {
-  if ( page >= 1 ){
-    page -- ;
-    console.log("page:", page, "decrease")
-    fetchCharacters()
-  }
-})
-
-nextButton.addEventListener("click", () => {
-  if( page < maxPage ){ 
-    page ++ ;   
-    console.log("page:", page, "increase")
-    fetchCharacters()
-  }
-})
 
