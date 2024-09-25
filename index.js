@@ -1,9 +1,11 @@
 import { createCharacterCard } from "./components/card/card.js";
+import { createSearchBar } from "./components/search-bar/search-bar.js"
 
 // States
 let maxPage = 1; /// should be updated according to API fetch
 let page = 1; //should be increase - decrease with button addEventListener
 let searchQuery = "";
+
 
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
@@ -16,6 +18,19 @@ const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
+//Initialize components
+createSearchBar(onSubmit)
+
+function onSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData)
+    searchQuery = data.query
+  
+    cardContainer.innerHTML = ``;
+    console.log("Submit:", searchQuery)
+    fetchCharacters(searchQuery)
+}
 
 //API INTEGRATION - FETCH DATA
 
@@ -69,16 +84,4 @@ nextButton.addEventListener("click", () => {
   }
 })
 
-//Search Bar
-
-searchBar.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  const data = Object.fromEntries(formData)
-  searchQuery = data.query
-
-  cardContainer.innerHTML = ``;
-  console.log("Submit:", searchQuery)
-  fetchCharacters()
-})
 
