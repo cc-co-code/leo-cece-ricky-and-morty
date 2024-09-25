@@ -2,8 +2,22 @@
   margin-bottom: 10px;
 }
 .card {
-  width: 300px;
+  max-width: 340px;
   background-color: var(--color-secondary);
+  margin:1em;
+  border-radius:20px;
+  transition:all 0.2s ease-in-out;
+  overflow:hidden;
+}
+
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #654138
+}
+
+.card__image{
+  width:100%;
 }
 
 .card__info {

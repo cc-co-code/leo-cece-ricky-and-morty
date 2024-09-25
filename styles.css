@@ -10,15 +10,58 @@
 }
 
 :root {
-  --color-primary: rgb(51, 51, 51);
-  --color-secondary: #f6f6f6;
+  --color-primary: #87CAA0ff;
+  --color-secondary: #654149ff;
+  --accent-color: #FDA84Eff;
+  --accent-color-secondary:#87CAA0ff;
+  --background-color-primary:#4C4762ff;
   --font-family: system-ui;
+  --font-family-headings: 'WubbaLubbaDubDub';
+  
+  --eggplant: #654149ff;
+  --celadon: #87CAA0ff;
+  --english-violet: #4C4762ff;
+  --space-cadet: #1E233Aff;
+  --sandy-brown: #FDA84Eff;
+  --background:url("./assets/background.jpg")
+}
+
+@font-face {
+  font-family: 'WubbaLubbaDubDub';
+  src: url(./assets/WubbaLubbaDubDub/WubbaLubbaDubDub.otf);
 }
 
 body {
   font-family: var(--font-family);
   color: var(--color-primary);
-  padding: 20px;
+  background: linear-gradient(135deg, #005233, #4A0078, #1B4E7A, #78004D);
+  background-size: 100% 100%;
+}
+
+header {
+  background-color:#4A0078;
+  top:0;
+  text-align:center;
+  padding:1.4em;
+  height:auto;
+  position:sticky;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items:center;
+  z-index: 1;
+}
+
+header .logo {
+  width:auto;
+  max-width:160px;
+  transition:all 0.5s ease;
+}
+
+header h1{
+  font-size: 1.5rem;
+  font-family: var(--font-family-headings);
+  color:var(--accent-color)
 }
 
 main {
