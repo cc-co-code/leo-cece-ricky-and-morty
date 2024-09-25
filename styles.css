@@ -25,8 +25,24 @@ main {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 100px;
 }
 
 .title {
   padding: 10px 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: blue; /* Behalte den blauen Hintergrund */
+  color: white; /* Weißer Text für den Footer */
+  display: flex;
+  flex-direction: column; /* Ordne die Elemente untereinander an */
+  align-items: center; /* Zentriere die Elemente horizontal */
+  justify-content: space-between; /* Sorgt dafür, dass Platz zwischen den Elementen ist */
+  padding: 20px; /* Füge Polsterung hinzu */
+  z-index: 10; /* Stelle sicher, dass der Footer über anderen Inhalten liegt */
 }
