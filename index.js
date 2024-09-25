@@ -17,13 +17,12 @@ const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
 
-
 //API INTEGRATION - FETCH DATA
 
 async function fetchCharacters() {
   cardContainer.innerHTML = ``
   try {
-  const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+  const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&name=${searchQuery}`)
   
   if (response.ok) {
   const data = await response.json();
@@ -68,5 +67,18 @@ nextButton.addEventListener("click", () => {
     console.log("page:", page, "increase")
     fetchCharacters()
   }
+})
+
+//Search Bar
+
+searchBar.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData)
+  searchQuery = data.query
+
+  cardContainer.innerHTML = ``;
+  console.log("Submit:", searchQuery)
+  fetchCharacters()
 })
 
