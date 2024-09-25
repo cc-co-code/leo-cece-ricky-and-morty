@@ -12,12 +12,10 @@ const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
 const searchBar = document.querySelector('[data-js="search-bar"]');
-const navigation = document.querySelector('[data-js="navigation"]');
 
 // Nav Pagination
 
 createNavPagination(onClickPrev, onClickNext, page, maxPage)
-
 const pagination = document.querySelector('[data-js="pagination"]');
 
 function onClickPrev(event) {
