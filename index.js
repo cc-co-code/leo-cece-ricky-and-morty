@@ -1,5 +1,11 @@
 import { createCharacterCard } from "./components/card/card.js";
 
+// States
+let maxPage = 1; /// should be updated according to API fetch
+let page = 1; //should be increase - decrease with button addEventListener
+let searchQuery = "";
+
+
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
@@ -10,22 +16,23 @@ const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
-// States
-const maxPage = 1;
-const page = 1;
-const searchQuery = "";
+
 
 //API INTEGRATION - FETCH DATA
 
 async function fetchCharacters() {
+  cardContainer.innerHTML = ``
   try {
-  const response = await fetch("https://rickandmortyapi.com/api/character")
+  const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
   
   if (response.ok) {
   const data = await response.json();
   const characters = data.results
-  console.log("Characters Fetch - Complete")
+  maxPage = data.info.pages
+  pagination.innerHTML = ` ${page} / ${maxPage}`   
 
+  console.log("Characters Fetch - Complete")
+  
   //Array Method for Character Card generation
 
   characters.forEach((character) => {
@@ -45,4 +52,21 @@ async function fetchCharacters() {
 
 fetchCharacters()
 
+// Nav Pagination
+
+prevButton.addEventListener("click", () => {
+  if ( page >= 1 ){
+    page -- ;
+    console.log("page:", page, "decrease")
+    fetchCharacters()
+  }
+})
+
+nextButton.addEventListener("click", () => {
+  if( page < maxPage ){ 
+    page ++ ;   
+    console.log("page:", page, "increase")
+    fetchCharacters()
+  }
+})
 
