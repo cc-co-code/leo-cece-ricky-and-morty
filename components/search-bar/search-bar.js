@@ -1,8 +1,10 @@
 export function createSearchBar(onSubmit) {
-    const searchBar = document.createElement("div")
-    searchBar.classList.add("search-bar-container")
-    searchBar.setAttribute("data-js","search-bar-container")
-    searchBar.innerHTML = `
+  const footer = document.querySelector('[data-js="footer"]');
+
+  const searchBar = document.createElement("div");
+  searchBar.classList.add("search-bar-container");
+  searchBar.setAttribute("data-js", "search-bar-container");
+  searchBar.innerHTML = `
         <form action="" class="search-bar" data-js="search-bar">
           <input
             name="query"
@@ -19,11 +21,11 @@ export function createSearchBar(onSubmit) {
             />
           </button>
         </form>
-`
-    document.body.append(searchBar)
+`;
+  //document.body.append(searchBar);
+  footer.append(searchBar);
+  const form = searchBar.querySelector('[data-js="search-bar"]');
+  form.addEventListener("submit", onSubmit);
 
-    searchBar.addEventListener("submit", onSubmit)
-    
-    return searchBar
+  return searchBar;
 }
-

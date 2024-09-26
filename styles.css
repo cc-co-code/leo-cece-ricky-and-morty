@@ -10,28 +10,28 @@
 }
 
 :root {
-  --color-primary: #87CAA0ff;
-  --color-secondary: #4A0078;
-  --accent-color-primary: #FDA84Eff;
-  --accent-color-secondary:#4A0078;
-  --background-color-primary:#330252;
-  --background-color-secondary:#87CAA0ff;
+  --color-primary: #87caa0ff;
+  --color-secondary: #4a0078;
+  --accent-color-primary: #fda84eff;
+  --accent-color-secondary: #4a0078;
+  --background-color-primary: #330252;
+  --background-color-secondary: #87caa0ff;
   --color-white: #ffffff;
   --color-black: #171717;
   --font-family: system-ui;
-  --font-family-headings: 'WubbaLubbaDubDub';
-  --background:url("./assets/background.jpg")
+  --font-family-headings: "WubbaLubbaDubDub";
+  --background: url("./assets/background.jpg");
 }
 
 @font-face {
-  font-family: 'WubbaLubbaDubDub';
+  font-family: "WubbaLubbaDubDub";
   src: url(./assets/WubbaLubbaDubDub/WubbaLubbaDubDub.otf);
 }
 
 body {
   font-family: var(--font-family);
   color: var(--color-primary);
-  background: linear-gradient(135deg, #005233, #4A0078, #FDA84Eff, #78004D);
+  background: linear-gradient(135deg, #005233, #4a0078, #fda84eff, #78004d);
   background-size: 200% 200%;
   -webkit-animation: background-animation 10s ease infinite;
   -moz-animation: background-animation 10s ease infinite;
@@ -39,71 +39,114 @@ body {
 }
 
 @-webkit-keyframes background-animation {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @-moz-keyframes background-animation {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes background-animation {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 header {
-  background-color:var(--background-color-primary);
-  top:0;
-  text-align:center;
-  padding:1em 3em;
-  height:auto;
-  position:sticky;
-  display:flex;
-  flex-direction:column;
+  background-color: var(--background-color-primary);
+  top: 0;
+  text-align: center;
+  padding: 1em 3em;
+  height: auto;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   z-index: 1;
-  transition:all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 header .logo {
-  width:auto;
-  max-width:160px;
+  width: auto;
+  max-width: 160px;
 }
 
-header h1{
+header h1 {
   font-size: 1.2rem;
   font-family: var(--font-family-headings);
-  color:var(--accent-color-primary);
+  color: var(--accent-color-primary);
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color:var(--color-primary)
+  -webkit-text-stroke-color: var(--color-primary);
 }
 
 main {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 100px;
 }
 
 .title {
   padding: 10px 0;
 }
 
-
-@media (min-width:700px) {
-  
+@media (min-width: 700px) {
   header .logo {
-    width:auto;
-    max-width:200px;
-    transition:all 0.5s ease;
+    width: auto;
+    max-width: 200px;
+    transition: all 0.5s ease;
   }
 
-  header h1{
-    font-size: 1.5rem;  
+  header h1 {
+    font-size: 1.5rem;
   }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color-primary);
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+footer p {
+  grid-column: 3 / 4;
+  justify-self: end;
+  margin: 0;
+  color: var(--accent-color-primary);
+  font-size: 14px;
+  text-align: right;
+  margin-top: 10px;
+  font-weight: normal;
+  line-height: 1.5;
 }
