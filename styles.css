@@ -10,15 +10,96 @@
 }
 
 :root {
-  --color-primary: rgb(51, 51, 51);
-  --color-secondary: #f6f6f6;
+  --color-primary: #87caa0ff;
+  --color-secondary: #4a0078;
+  --accent-color-primary: #fda84eff;
+  --accent-color-secondary: #4a0078;
+  --background-color-primary: #330252;
+  --background-color-secondary: #87caa0ff;
+  --color-white: #ffffff;
+  --color-black: #171717;
   --font-family: system-ui;
+  --font-family-headings: "WubbaLubbaDubDub";
+  --background: url("./assets/background.jpg");
+}
+
+@font-face {
+  font-family: "WubbaLubbaDubDub";
+  src: url(./assets/WubbaLubbaDubDub/WubbaLubbaDubDub.otf);
 }
 
 body {
   font-family: var(--font-family);
   color: var(--color-primary);
-  padding: 20px;
+  background: linear-gradient(135deg, #005233, #4a0078, #fda84eff, #78004d);
+  background-size: 200% 200%;
+  -webkit-animation: background-animation 10s ease infinite;
+  -moz-animation: background-animation 10s ease infinite;
+  animation: background-animation 10s ease infinite;
+}
+
+@-webkit-keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header {
+  background-color: var(--background-color-primary);
+  top: 0;
+  text-align: center;
+  padding: 1em 3em;
+  height: auto;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+header .logo {
+  width: auto;
+  max-width: 160px;
+}
+
+header h1 {
+  font-size: 1.2rem;
+  font-family: var(--font-family-headings);
+  color: var(--accent-color-primary);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color-primary);
 }
 
 main {
@@ -32,16 +113,14 @@ main {
   padding: 10px 0;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: blue; /* Behalte den blauen Hintergrund */
-  color: white; /* Weißer Text für den Footer */
-  display: flex;
-  flex-direction: column; /* Ordne die Elemente untereinander an */
-  align-items: center; /* Zentriere die Elemente horizontal */
-  justify-content: space-between; /* Sorgt dafür, dass Platz zwischen den Elementen ist */
-  padding: 0px; /* Füge Polsterung hinzu */
-  top: 680px;
+@media (min-width: 700px) {
+  header .logo {
+    width: auto;
+    max-width: 200px;
+    transition: all 0.5s ease;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
