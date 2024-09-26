@@ -11,18 +11,15 @@
 
 :root {
   --color-primary: #87CAA0ff;
-  --color-secondary: #654149ff;
-  --accent-color: #FDA84Eff;
-  --accent-color-secondary:#87CAA0ff;
-  --background-color-primary:#4C4762ff;
+  --color-secondary: #4A0078;
+  --accent-color-primary: #FDA84Eff;
+  --accent-color-secondary:#4A0078;
+  --background-color-primary:#330252;
+  --background-color-secondary:#87CAA0ff;
+  --color-white: #ffffff;
+  --color-black: #171717;
   --font-family: system-ui;
   --font-family-headings: 'WubbaLubbaDubDub';
-  
-  --eggplant: #654149ff;
-  --celadon: #87CAA0ff;
-  --english-violet: #4C4762ff;
-  --space-cadet: #1E233Aff;
-  --sandy-brown: #FDA84Eff;
   --background:url("./assets/background.jpg")
 }
 
@@ -34,34 +31,57 @@
 body {
   font-family: var(--font-family);
   color: var(--color-primary);
-  background: linear-gradient(135deg, #005233, #4A0078, #1B4E7A, #78004D);
-  background-size: 100% 100%;
+  background: linear-gradient(135deg, #005233, #4A0078, #FDA84Eff, #78004D);
+  background-size: 200% 200%;
+  -webkit-animation: background-animation 10s ease infinite;
+  -moz-animation: background-animation 10s ease infinite;
+  animation: background-animation 10s ease infinite;
+}
+
+@-webkit-keyframes background-animation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+@-moz-keyframes background-animation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+@keyframes background-animation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 header {
-  background-color:#4A0078;
+  background-color:var(--background-color-primary);
   top:0;
   text-align:center;
-  padding:1.4em;
+  padding:1em 3em;
   height:auto;
   position:sticky;
   display:flex;
-  flex-direction:row;
+  flex-direction:column;
   justify-content: space-between;
   align-items:center;
   z-index: 1;
+  transition:all 0.5s ease;
 }
 
 header .logo {
   width:auto;
   max-width:160px;
-  transition:all 0.5s ease;
 }
 
 header h1{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: var(--font-family-headings);
-  color:var(--accent-color)
+  color:var(--accent-color-primary);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color:var(--color-primary)
 }
 
 main {
@@ -72,4 +92,18 @@ main {
 
 .title {
   padding: 10px 0;
+}
+
+
+@media (min-width:700px) {
+  
+  header .logo {
+    width:auto;
+    max-width:200px;
+    transition:all 0.5s ease;
+  }
+
+  header h1{
+    font-size: 1.5rem;  
+  }
 }
