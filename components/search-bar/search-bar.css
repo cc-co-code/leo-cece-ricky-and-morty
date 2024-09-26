@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1fr 24px;
   border-radius: 15px;
-  margin: -80px;
+  margin: -60px;
 }
 
 .search-bar__input {
@@ -25,9 +25,34 @@
 
 .search-bar__input:focus {
   outline: none;
+  box-shadow: 0 0 10px var(--color-primary);
+  width: 100%;
 }
 
 .search-bar__icon {
   width: 20px;
+  transition: transform 0.2s ease;
   /* filter: invert(); */
+}
+
+.search-bar__icon:hover {
+  animation: vibrate 0.2s infinite;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(2px, 2px);
+  }
+  50% {
+    transform: translate(0);
+  }
+  75% {
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }

@@ -1,4 +1,6 @@
 .navigation {
+  grid-column: 1 / 2;
+  justify-self: start;
   position: relative;
   height: 30px;
   display: grid;
@@ -9,5 +11,5 @@
   display: grid;
   place-items: center;
   z-index: 2;
-  color: #5cd3c7;
+  color: var(--color-primary);
 }
