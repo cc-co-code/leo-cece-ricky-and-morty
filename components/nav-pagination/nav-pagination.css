@@ -8,4 +8,6 @@
 .navigation__pagination {
   display: grid;
   place-items: center;
+  z-index: 2;
+  color: #5cd3c7;
 }

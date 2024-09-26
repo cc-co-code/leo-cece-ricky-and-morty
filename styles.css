@@ -43,6 +43,5 @@ footer {
   flex-direction: column; /* Ordne die Elemente untereinander an */
   align-items: center; /* Zentriere die Elemente horizontal */
   justify-content: space-between; /* Sorgt dafür, dass Platz zwischen den Elementen ist */
-  padding: 20px; /* Füge Polsterung hinzu */
-  z-index: 10; /* Stelle sicher, dass der Footer über anderen Inhalten liegt */
-}
+  padding: 0px; /* Füge Polsterung hinzu */
+  top: 680px;
