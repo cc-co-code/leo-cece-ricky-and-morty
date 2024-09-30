@@ -44,7 +44,6 @@ function onSubmit(event) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData)
     searchQuery = data.query
-  
     cardContainer.innerHTML = ``;
     console.log("Submit:", searchQuery)
     fetchCharacters(searchQuery)
@@ -75,7 +74,11 @@ async function fetchCharacters() {
   
   }
   else {
-    console.error("Bad Response");
+    cardContainer.innerHTML=`
+    <div style="padding:2em; margin-top:3em; background-color:var(--background-color-primary); text-transform: uppercase">
+      <h1>Character doesn't exist</h1>
+    </div>`
+    console.error("Bad Response: Character doesn't exist");
   }} 
   catch (error) {
     console.error("Network Error", error);
