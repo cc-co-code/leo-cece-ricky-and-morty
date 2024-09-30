@@ -35,11 +35,11 @@
 .search-bar__icon {
   width: 20px;
   transition: transform 0.2s ease;
-  /* filter: invert(); */
+  filter: invert(); 
 }
 
 .search-bar__icon:hover {
-  animation: vibrate 0.2s infinite;
+  animation: vibrate 0.5s infinite;
 }
 
 @keyframes vibrate {
@@ -47,7 +47,7 @@
     transform: translate(0);
   }
   25% {
-    transform: translate(2px, 2px);
+    transform: translate(1px, 1px);
   }
   50% {
     transform: translate(0);

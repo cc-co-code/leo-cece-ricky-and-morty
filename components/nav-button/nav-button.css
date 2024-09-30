@@ -7,10 +7,17 @@
 
 .button:hover {
   background-color: var(--accent-color-secondary);
-  transform: scale(1.1);
-  animation: rubberBand 1s ease;
-  animation-delay: 0.1s;
 }
+
+@media (min-width:700px) {
+
+  button:hover {
+    transform: scale(1.1);
+    animation: rubberBand 1s ease;
+    animation-delay: 0.1s;
+  }
+}
+
 
 @keyframes rubberBand {
   0% {
