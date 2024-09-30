@@ -1,21 +1,23 @@
 .search-bar-container {
   width: 100%;
+  order:2;
+  position:relative;
 }
 
 .search-bar {
   position: relative;
   padding: 10px 20px;
   background-color: var(--color-secondary);
+  color: var(---accent-color-primary);
   display: grid;
   grid-template-columns: 1fr 24px;
   border-radius: 15px;
-  margin: -60px;
 }
 
 .search-bar__input {
   background-color: transparent;
   border: none;
-  color: var(--color-primary);
+  color: var(---accent-color-primary);
 }
 
 .search-bar__button {
@@ -23,10 +25,11 @@
   background-color: transparent;
 }
 
-.search-bar__input:focus {
+.search-bar-container:hover {
   outline: none;
   box-shadow: 0 0 10px var(--color-primary);
   width: 100%;
+  border-radius: 15px;
 }
 
 .search-bar__icon {
